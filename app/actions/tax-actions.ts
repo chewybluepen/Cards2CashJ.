@@ -1,4 +1,4 @@
-// actions/tax-actions.ts
+// /app/actions/tax-actions.ts
 
 export interface TaxFormData {
   /** Total declared income */
@@ -62,6 +62,22 @@ export const submitTaxReturn = async (
     success: true,
     message: `Tax return submitted successfully. Taxable Income: ${taxCalculation.taxableIncome.toFixed(
       2
-    )}, Tax Due: ${taxCalculation.taxDue.toFixed(2)}.`,
+    )}, Tax Due: ${taxCalculation.taxDue.toFixed(2)}.`
   }
+}
+
+/**
+ * Uploads tax transactions by submitting the tax return.
+ *
+ * This function serves as an alias to submitTaxReturn, providing the expected export.
+ *
+ * @param data - The tax form data to upload.
+ * @returns A promise resolving to the result of the upload.
+ */
+export const uploadTaxTransactions = async (
+  data: TaxFormData
+): Promise<{ success: boolean; message: string }> => {
+  // In this implementation, uploadTaxTransactions wraps submitTaxReturn.
+  // Adjust the behavior as needed.
+  return submitTaxReturn(data)
 }
