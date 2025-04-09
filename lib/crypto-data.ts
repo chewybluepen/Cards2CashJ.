@@ -1,3 +1,27 @@
+/**
+ * Dummy implementation to retrieve crypto details by ID.
+ *
+ * @param id - The cryptocurrency identifier.
+ * @returns An object representing the cryptocurrency.
+ */
+export const getCryptoById = (id: string) => {
+  return {
+    id,
+    name: "Bitcoin",
+    price: 50000,
+  };
+};
+
+/**
+ * Dummy crypto data array.
+ * Replace this array with actual crypto data as needed.
+ */
+export const cryptoData = [
+  { id: "btc", name: "Bitcoin", price: 50000 },
+  { id: "eth", name: "Ethereum", price: 4000 },
+];
+
+
 // Cryptocurrency data
 export interface Cryptocurrency {
   id: string
