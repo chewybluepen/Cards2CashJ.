@@ -24,8 +24,5 @@ export const MobileNav = () => {
   )
 }
 
-// Named export is crucial:
-export { MobileNav }
-
 // Optional default export:
 export default MobileNav
