@@ -1,29 +1,31 @@
 "use client"
 
 import Link from "next/link"
+import React from "react"
 
-const MobileNav = () => {
+/**
+ * Mobile navigation component for small screens
+ */
+export const MobileNav = () => {
   return (
-    <nav className="bg-gray-100 p-4 fixed bottom-0 left-0 right-0 md:hidden">
-      <ul className="flex justify-around">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-md md:hidden">
+      <ul className="flex justify-around p-2 text-sm text-gray-700">
         <li>
-          <Link href="/">
-            Home
-          </Link>
+          <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/analytics">
-            Analytics
-          </Link>
+          <Link href="/analytics">Analytics</Link>
         </li>
         <li>
-          <Link href="/crypto">
-            Crypto
-          </Link>
+          <Link href="/crypto">Crypto</Link>
         </li>
       </ul>
     </nav>
   )
 }
 
+// Named export is crucial:
+export { MobileNav }
+
+// Optional default export:
 export default MobileNav
