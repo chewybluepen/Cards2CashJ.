@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { useFormStatus } from "react-dom"
 import SubmitButton from "@/components/submit-button"
-import { uploadTaxTransactions } from "@/actions/tax-actions"
+import { uploadTaxTransactions } from "@/app/actions/tax-actions"
 import { toast } from "react-hot-toast"
 
 export default function TaxImportPage() {
