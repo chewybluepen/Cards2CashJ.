@@ -8,13 +8,7 @@ import { BiometricAuthProvider } from "@/contexts/biometric-auth-context";
 import { AuthNavigation } from "@/components/layout/auth-navigation";
 import { AccessibilityProvider } from "@/contexts/accessibility-context";
 import { AnimationProvider } from "@/contexts/animation-context";
-import dynamic from "next/dynamic";
-
-// Dynamically import TransitionLayout to ensure client-side rendering only
-const ClientOnlyTransitionLayout = dynamic(
-  () => import("@/components/layout/transition-layout"),
-  { ssr: false }
-);
+import ClientTransitionLayout from "./client-transition-layout"; // Import the new Client Component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,9 +37,7 @@ export default function RootLayout({
               <AuthProvider>
                 <BiometricAuthProvider>
                   <div className="flex min-h-screen flex-col bg-gradient-to-br from-pink-100 via-white to-blue-100">
-                    <ClientOnlyTransitionLayout>
-                      {children}
-                    </ClientOnlyTransitionLayout>
+                    <ClientTransitionLayout>{children}</ClientTransitionLayout>
                     <AuthNavigation />
                   </div>
                   <Toaster />
