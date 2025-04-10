@@ -1,29 +1,65 @@
-// Since the existing code was omitted for brevity and the updates indicate undeclared variables,
-// I will assume the variables are used within the component's logic.  Without the original code,
-// I will declare the variables at the top of the component scope to resolve the errors.
-// This is a placeholder solution and may need adjustment based on the actual code.
+"use client"
 
-// Assuming this is a React component, I'll create a basic functional component structure.
+import { useEffect, useState } from "react"
+
+type TaxHistory = {
+  id: number
+  transactionType: string
+  asset: string
+  amount: number
+  date: string
+}
 
 const TaxHistoryPage = () => {
-  // Declare the missing variables.  The types are unknown without the original code,
-  // so I'm using 'any' as a placeholder.  These should be replaced with the correct types.
-  const brevity: any = null
-  const it: any = null
-  const is: any = null
-  const correct: any = null
-  const and: any = null
+  // Declare the state variables
+  const [taxHistory, setTaxHistory] = useState<TaxHistory[]>([])
+  const [loading, setLoading] = useState(true)
 
-  // Rest of the component logic would go here, using the declared variables.
-  // Example usage (replace with actual logic):
-  if (is) {
-    console.log(correct && and, brevity, it)
-  }
+  // Fetch the tax history data when the component is mounted
+  useEffect(() => {
+    const fetchTaxHistory = async () => {
+      try {
+        // Simulate an API call or replace with actual API fetch
+        const data: TaxHistory[] = [
+          { id: 1, transactionType: "buy", asset: "BTC", amount: 5000, date: "2025-01-01" },
+          { id: 2, transactionType: "sell", asset: "ETH", amount: 2000, date: "2025-02-15" },
+        ]
+        setTaxHistory(data)
+      } catch (error) {
+        console.error("Error fetching tax history:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchTaxHistory()
+  }, [])
 
   return (
-    <div>
-      <h1>Tax History</h1>
-      {/* Component content would go here */}
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Tax History</h1>
+
+      {loading ? (
+        <p className="text-gray-500">Loading tax history...</p>
+      ) : taxHistory.length > 0 ? (
+        <ul className="space-y-4">
+          {taxHistory.map((entry) => (
+            <li
+              key={entry.id}
+              className="p-4 bg-white rounded-2xl shadow border border-gray-200"
+            >
+              <p className="text-lg font-medium capitalize">
+                {entry.transactionType} {entry.asset}
+              </p>
+              <p className="text-sm text-gray-600">
+                Amount: ${entry.amount.toLocaleString()} on {entry.date}
+              </p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-gray-500">No tax history found.</p>
+      )}
     </div>
   )
 }
