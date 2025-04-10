@@ -1,26 +1,75 @@
-// Since the existing code was omitted and the updates indicate undeclared variables,
-// I will assume the code uses 'it', 'is', 'and', 'correct', and 'brevity' without declaration or import.
-// A common scenario is that these are used within a testing context (e.g., Jest, Mocha).
-// Therefore, I will add a comment indicating that these variables are likely provided by a testing framework.
-// If the code is NOT within a testing context, then appropriate imports or declarations would be needed.
-
-// Example of how the code might look, assuming it's a placeholder loading component:
-
 const Loading = () => {
-  // Assuming 'it', 'is', 'and', 'correct', and 'brevity' are provided by a testing framework.
-  // If not, they need to be declared or imported.
-
   return (
-    <div>
-      <p>Loading transactions...</p>
-      {/* Example usage - remove if not relevant */}
-      {/* {brevity && <p>Brief loading message</p>}
-      {is && <p>Still loading...</p>}
-      {it && <p>Processing...</p>}
-      {correct && <p>Data is correct</p>}
-      {and && <p>And more loading...</p>} */}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f9fbfc',
+        color: '#2d3436',
+      }}
+    >
+      <h1 style={{ fontSize: '2.4rem', marginBottom: '30px' }}>
+        Loading Transactions...
+      </h1>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '10px',
+          marginBottom: '25px',
+        }}
+      >
+        <div
+          role="status"
+          aria-label="Loading transaction data"
+          style={{
+            width: '60px',
+            height: '60px',
+            border: '6px dashed #b2bec3',
+            borderTop: '6px solid #d63031',
+            borderRadius: '50%',
+            animation: 'spin 1.5s linear infinite',
+          }}
+        ></div>
+        <div
+          style={{
+            width: '40px',
+            height: '4px',
+            backgroundColor: '#636e72',
+            animation: 'pulse 1.5s ease-in-out infinite',
+          }}
+        ></div>
+      </div>
+      <p style={{ fontSize: '1.1rem', opacity: 0.8 }}>
+        Retrieving your crypto activity...
+      </p>
+      <style jsx>{`
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes pulse {
+          0% {
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0.4;
+          }
+        }
+      `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;
