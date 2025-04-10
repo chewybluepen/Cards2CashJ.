@@ -10,7 +10,11 @@ type Transaction = {
   price: number;
 };
 
-const TransactionsPage = () => {
+/**
+ * TransactionsPage component displays a list of portfolio transactions fetched dynamically.
+ * It uses client-side rendering with loading and error states while data is being fetched.
+ */
+export default function TransactionsPage() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +22,8 @@ const TransactionsPage = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        // Simulate an API call (replace with actual API call)
+        // Simulate an API call with a delay (replace with actual API call)
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         const data: Transaction[] = [
           { id: 1, type: "buy", asset: "BTC", quantity: 0.1, price: 60000 },
           { id: 2, type: "sell", asset: "ETH", quantity: 1, price: 3000 },
@@ -64,6 +69,4 @@ const TransactionsPage = () => {
       )}
     </main>
   );
-};
-
-export default TransactionsPage;
+}
