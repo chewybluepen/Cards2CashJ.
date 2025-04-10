@@ -14,24 +14,28 @@ const mockTaxReports: TaxReport[] = [
   { id: 2, asset: "ETH", capitalGain: 5000, taxDue: 1000 },
 ];
 
-const TaxReportPage = () => {
+function TaxReportClient() {
   const [reports, setReports] = useState<TaxReport[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Simulate an API call to fetch tax report data.
-    setTimeout(() => {
+    const fetchData = async () => {
       try {
-        // In a real-world scenario, replace this with an actual API call.
-        setReports(mockTaxReports);
+        // Replace this with real fetch logic if needed
+        setTimeout(() => {
+          setReports(mockTaxReports);
+          setLoading(false);
+        }, 1000);
       } catch (err) {
         console.error("Error fetching tax reports:", err);
         setError("Failed to load tax report data.");
-      } finally {
         setLoading(false);
       }
-    }, 1000);
+    };
+
+    fetchData();
   }, []);
 
   const totalCapitalGain = reports.reduce((acc, report) => acc + report.capitalGain, 0);
@@ -87,6 +91,8 @@ const TaxReportPage = () => {
       </div>
     </div>
   );
-};
+}
 
-export default TaxReportPage;
+export default function Page() {
+  return <TaxReportClient />;
+}
