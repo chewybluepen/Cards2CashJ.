@@ -1,48 +1,103 @@
-"use client"
+"use client";
 
-// Since the existing code was omitted for brevity, I will provide a placeholder file with the necessary fixes based on the error messages.  This assumes the original code used `brevity`, `it`, `is`, `correct`, and `and` without declaring or importing them.  A common cause would be missing imports from a testing library like Jest or Vitest.  Without the original code, I'm making an educated guess.
+import React, { useState } from "react";
 
-// Placeholder app/crypto/portfolio/import/page.tsx
+type PortfolioEntry = {
+  name: string;
+  symbol: string;
+  amount: number;
+};
 
-import { useState } from "react"
+const ImportPortfolioPage = () => {
+  const [portfolio, setPortfolio] = useState<PortfolioEntry[]>([]);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
-const ImportPage = () => {
-  const [data, setData] = useState<any[]>([])
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-  // Placeholder variables to resolve the errors.  Replace with actual logic.
-  const brevity = true
-  const it = (description: string, callback: () => void) => {
-    console.log(description)
-    callback()
-  }
-  const is = (value: any) => !!value
-  const correct = (value: any) => value === true
-  const and = (a: boolean, b: boolean) => a && b
+    const reader = new FileReader();
 
-  const processData = () => {
-    // Example usage of the variables to avoid "unused variable" warnings.
-    if (brevity && is(data) && correct(true) && and(true, true)) {
-      console.log("Data processing logic here", it)
-    }
+    reader.onload = (event) => {
+      const text = event.target?.result as string;
+      const rows = text.trim().split("\n");
+      const entries: PortfolioEntry[] = [];
 
-    setData([{ name: "Example", value: 123 }])
-  }
+      try {
+        for (let i = 1; i < rows.length; i++) {
+          const [name, symbol, amount] = rows[i].split(",");
+          entries.push({
+            name: name.trim(),
+            symbol: symbol.trim(),
+            amount: parseFloat(amount),
+          });
+        }
+        setPortfolio(entries);
+        setUploadError(null);
+      } catch (err) {
+        setUploadError("Invalid CSV format. Make sure the file has name,symbol,amount on each line.");
+        setPortfolio([]);
+      }
+    };
+
+    reader.onerror = () => {
+      setUploadError("Failed to read the file.");
+    };
+
+    reader.readAsText(file);
+  };
 
   return (
-    <div>
-      <h1>Import Portfolio</h1>
-      <button onClick={processData}>Process Data</button>
-      {data.length > 0 && (
-        <ul>
-          {data.map((item, index) => (
-            <li key={index}>
-              {item.name}: {item.value}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  )
-}
+    <div className="min-h-screen px-6 py-10 bg-white md:px-16">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold text-blue-600 mb-6 text-center">Import Your Portfolio</h1>
 
-export default ImportPage
+        <input
+          type="file"
+          accept=".csv"
+          onChange={handleFileUpload}
+          className="block w-full mb-6 text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+        />
+
+        {uploadError && <p className="text-red-500 mb-4">{uploadError}</p>}
+
+        {portfolio.length > 0 && (
+          <div className="overflow-x-auto border rounded-xl shadow-md">
+            <table className="min-w-full text-left text-sm text-gray-700">
+              <thead className="bg-gray-100 uppercase">
+                <tr>
+                  <th className="py-3 px-4">Name</th>
+                  <th className="py-3 px-4">Symbol</th>
+                  <th className="py-3 px-4">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {portfolio.map((entry, idx) => (
+                  <tr key={idx} className="border-t hover:bg-gray-50">
+                    <td className="py-3 px-4 font-medium">{entry.name}</td>
+                    <td className="py-3 px-4">{entry.symbol}</td>
+                    <td className="py-3 px-4">{entry.amount}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        <p className="mt-6 text-sm text-gray-500">
+          CSV format should be: <code>name,symbol,amount</code><br />
+          Example:
+          <pre className="mt-2 bg-gray-100 p-2 rounded-md">
+            Bitcoin,BTC,0.5
+            <br />
+            Ethereum,ETH,2
+            <br />
+            Cardano,ADA,300
+          </pre>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default ImportPortfolioPage;
