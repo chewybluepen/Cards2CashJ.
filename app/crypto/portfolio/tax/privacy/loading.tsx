@@ -1,30 +1,52 @@
-// Since the existing code was omitted for brevity and the updates indicate undeclared variables,
-// I will assume the variables are used within the component's logic.  Without the original code,
-// I will declare the variables at the top of the file to resolve the errors.  This is a placeholder
-// and may need to be adjusted based on the actual usage in the original file.
+// app/crypto/portfolio/tax/privacy/loading.tsx
+'use client';
 
-const brevity = null // Or appropriate initial value/type
-const it = null // Or appropriate initial value/type
-const is = null // Or appropriate initial value/type
-const correct = null // Or appropriate initial value/type
-const and = null // Or appropriate initial value/type
+import { motion } from 'framer-motion';
+import { Lock, Loader2 } from 'lucide-react';
 
-// Assume the rest of the original code from app/crypto/portfolio/tax/privacy/loading.tsx goes here.
-// This is a placeholder to represent the original code.
-// In a real scenario, this would be the actual content of the file.
-
-const Loading = () => {
+export default function TaxPrivacyLoading() {
   return (
-    <div>
-      Loading...
-      {/* Example usage of the declared variables - adjust based on actual usage */}
-      <p>{brevity}</p>
-      <p>{it}</p>
-      <p>{is}</p>
-      <p>{correct}</p>
-      <p>{and}</p>
-    </div>
-  )
-}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center space-y-6 max-w-sm w-full"
+      >
+        <div className="relative">
+          <Lock className="w-14 h-14 text-indigo-500" />
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1.3, repeat: Infinity, ease: 'linear' }}
+            className="absolute -top-2 -right-2"
+          >
+            <Loader2 className="w-6 h-6 text-teal-500" />
+          </motion.div>
+        </div>
 
-export default Loading
+        <div className="text-center space-y-2">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+            Securing Tax Privacy
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Encrypting your sensitive tax information...
+          </p>
+        </div>
+
+        <motion.div
+          animate={{
+            width: ['15%', '85%'],
+            backgroundPosition: ['0%', '100%'],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="h-2 w-full max-w-xs rounded-full bg-gradient-to-r from-indigo-500 to-teal-500"
+          style={{ backgroundSize: '200% 100%' }}
+        />
+      </motion.div>
+    </div>
+  );
+}
