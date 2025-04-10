@@ -1,19 +1,20 @@
 // app/crypto/compare/page.tsx
 
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 type AssetData = {
-  symbol: string
-  name: string
-  price: number
-  change: number
-}
+  symbol: string;
+  name: string;
+  price: number;
+  change: number;
+};
 
 const ComparePage = () => {
-  const [assets, setAssets] = useState<AssetData[]>([])
-  const [loading, setLoading] = useState(true)
+  const [assets, setAssets] = useState<AssetData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchAssetData = async () => {
@@ -22,17 +23,18 @@ const ComparePage = () => {
         const data: AssetData[] = [
           { symbol: "BTC", name: "Bitcoin", price: 60000, change: 2.3 },
           { symbol: "ETH", name: "Ethereum", price: 3200, change: -1.1 },
-        ]
-        setAssets(data)
+        ];
+        setAssets(data);
       } catch (error) {
-        console.error("Error fetching asset data:", error)
+        console.error("Error fetching asset data:", error);
+        setError("Failed to load asset data.");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchAssetData()
-  }, [])
+    fetchAssetData();
+  }, []);
 
   return (
     <main className="p-6 max-w-4xl mx-auto">
@@ -40,6 +42,8 @@ const ComparePage = () => {
 
       {loading ? (
         <p className="text-gray-500">Loading data...</p>
+      ) : error ? (
+        <p className="text-red-500">{error}</p>
       ) : (
         <table className="w-full border-collapse border border-gray-300">
           <thead>
@@ -69,7 +73,7 @@ const ComparePage = () => {
         </table>
       )}
     </main>
-  )
-}
+  );
+};
 
-export default ComparePage
+export default ComparePage;
