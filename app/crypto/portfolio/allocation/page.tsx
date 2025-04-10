@@ -1,3 +1,6 @@
+// Add the "use client" directive to specify that this component is a client-side component
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
