@@ -4,7 +4,7 @@ import type React from "react"
 
 import { AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
-import { PageTransition } from "@/components/navigation/page-transition"
+import PageTransition from "@/components/navigation/page-transition" // ✅ Changed to default import
 
 interface TransitionLayoutProps {
   children: React.ReactNode
