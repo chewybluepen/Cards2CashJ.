@@ -1,10 +1,8 @@
-// app/crypto/learn/page.tsx
-
 "use client";
 
 import React from "react";
 
-const CryptoLearnPage = () => {
+const CryptoLearnPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white px-4 py-8 md:px-16">
       <div className="max-w-3xl mx-auto">
@@ -15,20 +13,20 @@ const CryptoLearnPage = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">What is Cryptocurrency?</h2>
           <p className="text-gray-700 leading-relaxed">
-            Cryptocurrency is a digital or virtual form of currency that uses cryptography
-            for security. Unlike traditional currencies issued by governments (like USD or EUR),
-            cryptocurrencies are decentralized and typically operate on blockchain technology.
-            Bitcoin, Ethereum, and Solana are popular examples.
+            Cryptocurrency is a digital or virtual form of currency that uses cryptography for security.
+            Unlike traditional currencies issued by governments (like USD or EUR), cryptocurrencies are
+            decentralized and typically operate on blockchain technology. Bitcoin, Ethereum, and Solana are
+            popular examples.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">How Does It Work?</h2>
           <p className="text-gray-700 leading-relaxed">
-            Most cryptocurrencies operate on a blockchain — a decentralized and distributed ledger
-            that records all transactions across a network of computers. This system ensures transparency,
-            security, and immutability. Transactions are verified by participants in the network,
-            often through a process called mining or staking.
+            Most cryptocurrencies operate on a blockchain—a decentralized and distributed ledger that records
+            all transactions across a network of computers. This system ensures transparency, security, and
+            immutability. Transactions are verified by participants in the network, often through a process
+            called mining or staking.
           </p>
         </section>
 
@@ -43,12 +41,12 @@ const CryptoLearnPage = () => {
           </ul>
         </section>
 
-        <section>
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">Is It Safe?</h2>
           <p className="text-gray-700 leading-relaxed">
-            Crypto can be safe when proper precautions are taken. Use secure wallets, enable two-factor authentication (2FA),
-            and avoid sharing your private keys. However, the market is highly volatile, and scams exist, so it's important
-            to research before investing.
+            Crypto can be safe when proper precautions are taken. Use secure wallets, enable two-factor
+            authentication (2FA), and avoid sharing your private keys. However, the market is highly volatile,
+            and scams exist, so it's important to research before investing.
           </p>
         </section>
 
