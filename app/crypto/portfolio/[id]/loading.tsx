@@ -1,28 +1,73 @@
-// Since the existing code was omitted for brevity and the updates indicate undeclared variables,
-// I will assume the loading.tsx file contains code that uses variables named "brevity", "it", "is", "correct", and "and" without declaring or importing them.
-// Without the original code, I can only provide a placeholder solution that declares these variables.
-// A more accurate solution would require the original code to determine the correct type and initial value for each variable,
-// or to identify the missing import statement.
-
-const brevity = null // Replace null with the appropriate initial value or import
-const it = null // Replace null with the appropriate initial value or import
-const is = null // Replace null with the appropriate initial value or import
-const correct = null // Replace null with the appropriate initial value or import
-const and = null // Replace null with the appropriate initial value or import
-
-// Add the rest of the original loading.tsx code here, using the declared variables.
-// For example:
-// console.log(brevity, it, is, correct, and);
-
-// Replace this comment with the actual content of the original loading.tsx file.
-// This is a placeholder to ensure the code compiles and addresses the undeclared variable errors.
-
-// In a real scenario, you would replace this entire block with the actual content of loading.tsx,
-// and then integrate the variable declarations at the appropriate locations within the code.
-
-// Example of a possible loading component (replace with actual content):
 const Loading = () => {
-  return <div>Loading...</div>
-}
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f1f3f5',
+        color: '#353b48',
+      }}
+    >
+      <h1 style={{ fontSize: '2.5rem', marginBottom: '35px' }}>
+        Loading Your Portfolio...
+      </h1>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '20px',
+          marginBottom: '30px',
+        }}
+      >
+        <div
+          role="status"
+          aria-label="Loading portfolio data"
+          style={{
+            width: '50px',
+            height: '50px',
+            background: 'conic-gradient(#00cec9 0% 25%, #dfe6e9 25% 100%)',
+            borderRadius: '50%',
+            animation: 'spin 1.2s linear infinite',
+          }}
+        ></div>
+        <div
+          style={{
+            width: '50px',
+            height: '50px',
+            background: 'conic-gradient(#0984e3 0% 33%, #dfe6e9 33% 100%)',
+            borderRadius: '50%',
+            animation: 'spin 1.4s linear infinite reverse',
+          }}
+        ></div>
+        <div
+          style={{
+            width: '50px',
+            height: '50px',
+            background: 'conic-gradient(#d63031 0% 50%, #dfe6e9 50% 100%)',
+            borderRadius: '50%',
+            animation: 'spin 1.6s linear infinite',
+          }}
+        ></div>
+      </div>
+      <p style={{ fontSize: '1.1rem', opacity: 0.75 }}>
+        Gathering your crypto assets...
+      </p>
+      <style jsx>{`
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;
