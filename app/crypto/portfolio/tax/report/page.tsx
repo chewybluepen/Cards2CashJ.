@@ -20,10 +20,8 @@ function TaxReportClient() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Simulate an API call to fetch tax report data.
     const fetchData = async () => {
       try {
-        // Replace this with real fetch logic if needed
         setTimeout(() => {
           setReports(mockTaxReports);
           setLoading(false);
@@ -34,7 +32,6 @@ function TaxReportClient() {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
