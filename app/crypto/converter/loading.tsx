@@ -1,23 +1,71 @@
-// Since the existing code was omitted for brevity and the updates indicate undeclared variables,
-// I will assume the loading.tsx file contains code that uses variables like 'brevity', 'it', 'is', 'correct', and 'and'
-// without properly importing or declaring them.  Given the context of a crypto converter loading component,
-// it's highly likely these are related to internationalization (i18n) and are meant to be part of a translation/localization library.
-// I will add a placeholder import statement to resolve the undeclared variable errors.  This is a best-guess approach
-// given the limited information.  A real-world solution would involve inspecting the original code and adding the correct
-// import or declaration based on the actual usage of these variables.
-
-import { brevity, it, is, correct, and } from "./i18n" // Placeholder import - replace with actual import
-
 const Loading = () => {
   return (
-    <div>
-      Loading...
-      {/* Example usage of the variables to ensure they are referenced.  Remove if not needed. */}
-      <p>
-        {brevity} {it} {is} {correct} {and}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f0f2f5',
+        color: '#1f2a44',
+      }}
+    >
+      <h1 style={{ fontSize: '2.2rem', marginBottom: '25px' }}>
+        Loading Crypto Converter...
+      </h1>
+      <div
+        style={{
+          position: 'relative',
+          width: '80px',
+          height: '80px',
+          marginBottom: '25px',
+        }}
+      >
+        <div
+          role="status"
+          aria-label="Loading conversion data"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            border: '8px solid #dfe4ea',
+            borderTop: '8px solid #3867d6',
+            borderRadius: '50%',
+            width: '80px',
+            height: '80px',
+            animation: 'spin 1.8s linear infinite',
+          }}
+        ></div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '15px',
+            left: '15px',
+            border: '6px solid #dfe4ea',
+            borderTop: '6px solid #f7b731',
+            borderRadius: '50%',
+            width: '50px',
+            height: '50px',
+            animation: 'spin 1s linear infinite reverse',
+          }}
+        ></div>
+      </div>
+      <p style={{ fontSize: '1.1rem', opacity: 0.75 }}>
+        Fetching the latest exchange rates...
       </p>
+      <style jsx>{`
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;
