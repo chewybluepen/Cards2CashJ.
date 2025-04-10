@@ -1,4 +1,12 @@
-// This file was left out for brevity. Assume it is correct and does not need any modifications.
-// Since the updates indicate undeclared variables, and the original file is assumed to be correct,
-// the updates are likely incorrect or based on a misunderstanding of the code's context.
-// Therefore, no changes are made to the original file.
+"use client";
+
+import React from "react";
+
+export default function AllocationLoading() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+      <div className="animate-spin rounded-full h-16 w-16 border-4 border-t-indigo-600 border-gray-300"></div>
+      <p className="mt-4 text-gray-700 text-lg">Loading portfolio allocation...</p>
+    </div>
+  );
+}
