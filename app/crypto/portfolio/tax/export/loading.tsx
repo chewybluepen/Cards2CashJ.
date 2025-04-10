@@ -1,32 +1,52 @@
-// Since the existing code was omitted for brevity and the updates indicate undeclared variables,
-// I will assume the variables are used within a testing context (e.g., Jest, Mocha).
-// Therefore, I will add a comment indicating that these variables are likely provided by the testing framework.
-// If the variables are intended to be used outside of a testing context, further information would be needed to provide a more accurate solution.
+// app/crypto/portfolio/tax/export/loading.tsx
+'use client';
 
-// Assuming 'it', 'is', 'correct', 'and' are part of a testing framework like Jest or Mocha.
-// These are usually provided globally by the testing environment.
-// If they are not part of a testing framework, they need to be defined or imported.
+import { motion } from 'framer-motion';
+import { FileDown, Loader2 } from 'lucide-react';
 
-// Example of how they might be used in a test (this is illustrative and might not be the actual usage):
-// it('should handle brevity correctly', () => {
-//   const brevity = true; // Example: brevity is used within this test scope
-//   is(brevity).to.be.true; // Example: is is used for assertions
-//   const correctValue = 123;
-//   const andValue = 456;
-//   is(correctValue + andValue).to.equal(579);
-// });
-
-// The original file content would go here. Since it was omitted, I'm adding a placeholder.
-// Replace this with the actual content of app/crypto/portfolio/tax/export/loading.tsx
-
-// Placeholder for the original file content:
-const LoadingComponent = () => {
+export default function TaxExportLoading() {
   return (
-    <div>
-      {/* Loading indicator or message */}
-      Loading...
-    </div>
-  )
-}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center space-y-6 max-w-md w-full"
+      >
+        <div className="relative">
+          <FileDown className="w-14 h-14 text-green-500" />
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
+            className="absolute -top-2 -right-2"
+          >
+            <Loader2 className="w-6 h-6 text-orange-500" />
+          </motion.div>
+        </div>
 
-export default LoadingComponent
+        <div className="text-center space-y-2">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+            Exporting Tax Data
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Generating your tax documents for download...
+          </p>
+        </div>
+
+        <motion.div
+          animate={{
+            width: ['20%', '80%'],
+            backgroundPosition: ['0%', '100%'],
+          }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="h-2 w-full max-w-xs rounded-full bg-gradient-to-r from-green-500 to-orange-500"
+          style={{ backgroundSize: '200% 100%' }}
+        />
+      </motion.div>
+    </div>
+  );
+}
