@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 type Transaction = {
-  id: number
-  type: "buy" | "sell"
-  asset: string
-  quantity: number
-  price: number
-}
+  id: number;
+  type: "buy" | "sell";
+  asset: string;
+  quantity: number;
+  price: number;
+};
 
 const TransactionsPage = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -22,18 +22,18 @@ const TransactionsPage = () => {
         const data: Transaction[] = [
           { id: 1, type: "buy", asset: "BTC", quantity: 0.1, price: 60000 },
           { id: 2, type: "sell", asset: "ETH", quantity: 1, price: 3000 },
-        ]
-        setTransactions(data)
-      } catch (error) {
-        console.error("Error fetching transactions:", error)
-        setError("Failed to load transactions. Please try again later.")
+        ];
+        setTransactions(data);
+      } catch (err) {
+        console.error("Error fetching transactions:", err);
+        setError("Failed to load transactions. Please try again later.");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchTransactions()
-  }, [])
+    fetchTransactions();
+  }, []);
 
   return (
     <main className="p-6 max-w-3xl mx-auto">
@@ -63,7 +63,7 @@ const TransactionsPage = () => {
         <p className="text-gray-500">No transactions found.</p>
       )}
     </main>
-  )
-}
+  );
+};
 
-export default TransactionsPage
+export default TransactionsPage;
