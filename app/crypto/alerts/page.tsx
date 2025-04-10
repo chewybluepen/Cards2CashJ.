@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Alert {
   id: number;
@@ -18,15 +18,23 @@ export default function AlertsPage() {
   const [newThreshold, setNewThreshold] = useState<number | "">("");
   const [status, setStatus] = useState("");
 
+  // Clear the status message after 3 seconds whenever it is updated
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => setStatus(""), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
   const handleAddAlert = () => {
-    if (!newName || newThreshold === "") {
+    if (!newName.trim() || newThreshold === "") {
       setStatus("Please provide both asset name and threshold.");
       return;
     }
 
     const newAlert: Alert = {
       id: Date.now(),
-      name: newName,
+      name: newName.trim(),
       threshold: Number(newThreshold),
       active: true,
     };
@@ -47,13 +55,16 @@ export default function AlertsPage() {
 
   const deleteAlert = (id: number) => {
     setAlerts((prev) => prev.filter((alert) => alert.id !== id));
+    setStatus("Alert deleted.");
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 sm:p-10">
       <div className="max-w-2xl mx-auto bg-white rounded-lg shadow p-6">
         <h1 className="text-3xl font-bold mb-4">Crypto Alerts</h1>
-        <p className="text-gray-600 mb-6">Manage your price alert notifications here.</p>
+        <p className="text-gray-600 mb-6">
+          Manage your price alert notifications here.
+        </p>
 
         {/* Add New Alert */}
         <div className="mb-6 space-y-3">
@@ -64,7 +75,7 @@ export default function AlertsPage() {
               placeholder="Asset Name (e.g. Bitcoin)"
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
-              className="w-full rounded border-gray-300 p-2 shadow-sm"
+              className="w-full rounded border border-gray-300 p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <input
               type="number"
@@ -73,7 +84,7 @@ export default function AlertsPage() {
               onChange={(e) =>
                 setNewThreshold(e.target.value === "" ? "" : Number(e.target.value))
               }
-              className="w-full rounded border-gray-300 p-2 shadow-sm"
+              className="w-full rounded border border-gray-300 p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <button
               onClick={handleAddAlert}
@@ -111,13 +122,13 @@ export default function AlertsPage() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => toggleAlert(alert.id)}
-                      className="text-sm px-3 py-1 rounded border hover:bg-gray-100"
+                      className="text-sm px-3 py-1 rounded border hover:bg-gray-100 transition"
                     >
                       {alert.active ? "Disable" : "Enable"}
                     </button>
                     <button
                       onClick={() => deleteAlert(alert.id)}
-                      className="text-sm px-3 py-1 rounded border text-red-600 hover:bg-red-50"
+                      className="text-sm px-3 py-1 rounded border text-red-600 hover:bg-red-50 transition"
                     >
                       Delete
                     </button>
