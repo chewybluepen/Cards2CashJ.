@@ -9,7 +9,7 @@ import { BiometricAuthProvider } from "@/contexts/biometric-auth-context";
 import { AuthNavigation } from "@/components/layout/auth-navigation";
 import { AccessibilityProvider } from "@/contexts/accessibility-context";
 import { AnimationProvider } from "@/contexts/animation-context";
-// Import the client transition wrapper (which itself is a client component)
+// Import our client-only transition wrapper (which is a client component)
 import ClientTransitionWrapper from "./client-transition-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -39,7 +39,7 @@ export default function RootLayout({
               <AuthProvider>
                 <BiometricAuthProvider>
                   <div className="flex min-h-screen flex-col bg-gradient-to-br from-pink-100 via-white to-blue-100">
-                    {/* Wrap the content in the client-side transition wrapper */}
+                    {/* Use the client-only transition wrapper */}
                     <ClientTransitionWrapper>{children}</ClientTransitionWrapper>
                     <AuthNavigation />
                   </div>
