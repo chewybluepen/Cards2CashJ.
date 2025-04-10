@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useEffect } from 'react';
 
 const TaxSupport = () => {
@@ -9,7 +11,7 @@ const TaxSupport = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/tax-support'); // Replace with real endpoint
+        const res = await fetch('/api/tax-support');
         const result = await res.json();
         setData(result);
       } catch (err) {
