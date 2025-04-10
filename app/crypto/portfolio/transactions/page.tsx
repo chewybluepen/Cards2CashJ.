@@ -15,11 +15,12 @@ type Transaction = {
 const TransactionsPage = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        // Replace this with actual API call
+        // Simulate an API call (replace with actual API call)
         const data: Transaction[] = [
           { id: 1, type: "buy", asset: "BTC", quantity: 0.1, price: 60000 },
           { id: 2, type: "sell", asset: "ETH", quantity: 1, price: 3000 },
@@ -27,6 +28,7 @@ const TransactionsPage = () => {
         setTransactions(data)
       } catch (error) {
         console.error("Error fetching transactions:", error)
+        setError("Failed to load transactions. Please try again later.")
       } finally {
         setLoading(false)
       }
@@ -41,6 +43,8 @@ const TransactionsPage = () => {
 
       {loading ? (
         <p className="text-gray-500">Loading transactions...</p>
+      ) : error ? (
+        <p className="text-red-500">{error}</p>
       ) : transactions.length > 0 ? (
         <ul className="space-y-4">
           {transactions.map((tx) => (
@@ -48,7 +52,9 @@ const TransactionsPage = () => {
               key={tx.id}
               className="p-4 bg-white rounded-2xl shadow border border-gray-200"
             >
-              <p className="text-lg font-medium capitalize">{tx.type} {tx.asset}</p>
+              <p className="text-lg font-medium capitalize">
+                {tx.type} {tx.asset}
+              </p>
               <p className="text-sm text-gray-600">
                 Quantity: {tx.quantity} @ ${tx.price.toLocaleString()}
               </p>
