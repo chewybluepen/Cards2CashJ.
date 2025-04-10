@@ -1,21 +1,21 @@
-import React from 'react';
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
+'use client';
 
-// A functional component for the tax support page
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+
 const TaxSupport = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate fetching data (e.g., tax support data or portfolio info)
+    // Simulated fetch – replace with actual API call
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/tax-support'); // Replace with your API endpoint
-        const result = await response.json();
+        const res = await fetch('/api/tax-support'); // Example endpoint
+        const result = await res.json();
         setData(result);
-      } catch (error) {
-        console.error('Error fetching tax support data:', error);
+      } catch (err) {
+        console.error('Error loading tax support data:', err);
       } finally {
         setLoading(false);
       }
@@ -24,36 +24,30 @@ const TaxSupport = () => {
     fetchData();
   }, []);
 
-  // Render a loading state if data is not available
-  if (loading) {
-    return <div>Loading tax support information...</div>;
-  }
-
-  // Render the data once it's fetched
   return (
-    <div>
+    <>
       <Head>
         <title>Tax Support | Crypto Portfolio</title>
-        <meta name="description" content="Tax support page for your crypto portfolio" />
+        <meta name="description" content="Support page for crypto portfolio taxes" />
       </Head>
-      
-      <h1>Tax Support</h1>
-      <div>
-        <h2>Your Crypto Portfolio Tax Information</h2>
-        {/* Display tax-related data */}
-        {data && data.length > 0 ? (
+
+      <main style={{ padding: '2rem' }}>
+        <h1>Tax Support</h1>
+        {loading ? (
+          <p>Loading tax information...</p>
+        ) : data?.length ? (
           <ul>
-            {data.map((item, index) => (
-              <li key={index}>
+            {data.map((item, idx) => (
+              <li key={idx}>
                 <strong>{item.name}</strong>: {item.amount} {item.currency}
               </li>
             ))}
           </ul>
         ) : (
-          <p>No tax data available at the moment.</p>
+          <p>No tax information available at the moment.</p>
         )}
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 
