@@ -1,17 +1,22 @@
-import { describe, it, expect } from "vitest"
+"use client";
 
-// The rest of the original code would go here.
-// Assuming the original code uses the variables 'brevity', 'it', 'is', 'correct', and 'and' within a testing context.
+import React from "react";
 
-// Example usage (replace with actual code from the original file):
-describe("Example Test", () => {
-  it("should pass", () => {
-    const brevity = "short"
-    const is = true
-    const correct = true
-    const and = true
+export default function LearnPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
 
-    expect(brevity).toBe("short")
-    expect(is && correct && and).toBe(true)
-  })
-})
+  return (
+    <div className="min-h-screen p-8">
+      <h1 className="text-3xl font-bold mb-4">Learn About: {slug}</h1>
+      <p>
+        This page contains detailed learning content about crypto topics related
+        to "{slug}".
+      </p>
+      {/* Insert additional dynamic content as needed */}
+    </div>
+  );
+}
