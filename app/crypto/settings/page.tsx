@@ -7,17 +7,17 @@ export default function SettingsPage() {
   const [privacyMode, setPrivacyMode] = useState(false);
   const [currency, setCurrency] = useState("USD");
   const [language, setLanguage] = useState("en");
-  const [status, setStatus] = useState<null | string>(null);
+  const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSave = async () => {
     setLoading(true);
     setStatus(null);
 
-    // Simulate API call
-    await new Promise((res) => setTimeout(res, 1000));
+    // Simulate an API call with a delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Simulate success
+    // Simulate a successful save action
     setStatus("Settings saved successfully!");
     setLoading(false);
   };
@@ -68,7 +68,7 @@ export default function SettingsPage() {
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2"
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="USD">USD - US Dollar</option>
               <option value="EUR">EUR - Euro</option>
@@ -85,7 +85,7 @@ export default function SettingsPage() {
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2"
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               <option value="en">English</option>
               <option value="es">Español</option>
