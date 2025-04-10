@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
 interface AllocationData {
   name: string;
@@ -10,7 +8,7 @@ interface AllocationData {
   currency: string;
 }
 
-const AllocationPage: NextPage = () => {
+export default function AllocationPage() {
   const [data, setData] = useState<AllocationData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,36 +33,15 @@ const AllocationPage: NextPage = () => {
     fetchData();
   }, []);
 
-  const brevity = true; // Sample logic condition
-  const is = true; // Another sample condition
-  const correct = true; // Yet another condition
-  const and = true; // Another one for testing
-
-  const someFunction = () => {
-    if (brevity && is) {
-      console.log("Brevity and is are true");
-    }
-
-    for (let i = 0; i < 1; i++) {
-      console.log("Iteration:", i);
-    }
-
-    if (correct && and) {
-      console.log("Correct and and are true");
-    }
-  };
-
-  someFunction();
-
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1>Portfolio Allocation</h1>
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-4">Portfolio Allocation</h1>
       {loading ? (
         <p>Loading allocation data...</p>
       ) : error ? (
-        <p>{error}</p>
-      ) : data.length ? (
-        <ul>
+        <p className="text-red-500">{error}</p>
+      ) : data.length > 0 ? (
+        <ul className="list-disc pl-6">
           {data.map((item, idx) => (
             <li key={idx}>
               <strong>{item.name}</strong>: {item.amount} {item.currency}
@@ -76,6 +53,4 @@ const AllocationPage: NextPage = () => {
       )}
     </main>
   );
-};
-
-export default AllocationPage;
+}
