@@ -1,24 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Header } from "@/components/layout/header"
-import { BottomTabBar } from "@/components/layout/bottom-tab-bar"
-import { BankCard } from "@/components/bank/bank-card"
-import { BankForm } from "@/components/bank/bank-form"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Plus } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image"; // Import the Next.js Image component
+import { Header } from "@/components/layout/header";
+import { BottomTabBar } from "@/components/layout/bottom-tab-bar";
+import { BankCard } from "@/components/bank/bank-card";
+import { BankForm } from "@/components/bank/bank-form";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Plus } from "lucide-react";
 
 interface Bank {
-  id: string
-  name: string
-  logo: string
+  id: string;
+  name: string;
+  logo: string;
 }
 
 export default function BankAccountsPage() {
-  const [linkedBanks, setLinkedBanks] = useState<string[]>([])
-  const [selectedBank, setSelectedBank] = useState<Bank | null>(null)
-  const [showLinkDialog, setShowLinkDialog] = useState(false)
+  const [linkedBanks, setLinkedBanks] = useState<string[]>([]);
+  const [selectedBank, setSelectedBank] = useState<Bank | null>(null);
+  const [showLinkDialog, setShowLinkDialog] = useState(false);
 
   const banks: Bank[] = [
     {
@@ -46,34 +47,34 @@ export default function BankAccountsPage() {
       name: "Bank of Baroda",
       logo: "/images/banks/bank-of-baroda.png",
     },
-  ]
+  ];
 
   const handleLinkBank = (bankId: string) => {
-    const bank = banks.find((b) => b.id === bankId)
+    const bank = banks.find((b) => b.id === bankId);
     if (bank) {
-      setSelectedBank(bank)
-      setShowLinkDialog(true)
+      setSelectedBank(bank);
+      setShowLinkDialog(true);
     }
-  }
+  };
 
   const handleUnlinkBank = (bankId: string) => {
-    setLinkedBanks((prev) => prev.filter((id) => id !== bankId))
-  }
+    setLinkedBanks((prev) => prev.filter((id) => id !== bankId));
+  };
 
   const handleLinkSuccess = () => {
     if (selectedBank) {
-      setLinkedBanks((prev) => [...prev, selectedBank.id])
+      setLinkedBanks((prev) => [...prev, selectedBank.id]);
       setTimeout(() => {
-        setShowLinkDialog(false)
-        setSelectedBank(null)
-      }, 1500)
+        setShowLinkDialog(false);
+        setSelectedBank(null);
+      }, 1500);
     }
-  }
+  };
 
   const handleCancelLink = () => {
-    setShowLinkDialog(false)
-    setSelectedBank(null)
-  }
+    setShowLinkDialog(false);
+    setSelectedBank(null);
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -82,7 +83,11 @@ export default function BankAccountsPage() {
         <div className="mx-auto max-w-3xl">
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-2xl font-bold">Your Bank Accounts</h1>
-            <Button variant="outline" className="animate-button-press" onClick={() => setShowLinkDialog(true)}>
+            <Button
+              variant="outline"
+              className="animate-button-press"
+              onClick={() => setShowLinkDialog(true)}
+            >
               <Plus className="mr-2 h-4 w-4" />
               Add New
             </Button>
@@ -134,11 +139,18 @@ export default function BankAccountsPage() {
                     disabled={linkedBanks.includes(bank.id)}
                   >
                     <div className="h-10 w-10 relative mr-4">
-                      <Image src={bank.logo || "/placeholder.svg"} alt={bank.name} fill className="object-contain" />
+                      <Image
+                        src={bank.logo || "/placeholder.svg"}
+                        alt={bank.name}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     <span>{bank.name}</span>
                     {linkedBanks.includes(bank.id) && (
-                      <span className="ml-auto text-xs text-muted-foreground">Already linked</span>
+                      <span className="ml-auto text-xs text-muted-foreground">
+                        Already linked
+                      </span>
                     )}
                   </Button>
                 ))}
@@ -150,5 +162,5 @@ export default function BankAccountsPage() {
 
       <BottomTabBar />
     </div>
-  )
+  );
 }
