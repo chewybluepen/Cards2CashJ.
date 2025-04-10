@@ -1,36 +1,34 @@
-// Since the existing code was omitted and the updates indicate undeclared variables,
-// I will assume the variables are used within the component's logic.
-// Without the original code, I'll declare these variables at the top of the component scope
-// to resolve the errors.  This is a placeholder solution and may need adjustment
-// based on the actual code.
+// app/crypto/portfolio/transactions/page.tsx
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+
+type Transaction = {
+  id: number
+  type: "buy" | "sell"
+  asset: string
+  quantity: number
+  price: number
+}
 
 const TransactionsPage = () => {
-  // Declare the missing variables.  These may need to be initialized with appropriate values
-  // based on their usage in the original code.
-  const brevity = null
-  const it = null
-  const is = null
-  const correct = null
-  const and = null
-
-  const [transactions, setTransactions] = useState([])
+  const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Placeholder for fetching transactions.  Replace with actual data fetching logic.
     const fetchTransactions = async () => {
       try {
-        // Simulate fetching data
-        const data = [
+        // Replace this with actual API call
+        const data: Transaction[] = [
           { id: 1, type: "buy", asset: "BTC", quantity: 0.1, price: 60000 },
           { id: 2, type: "sell", asset: "ETH", quantity: 1, price: 3000 },
         ]
         setTransactions(data)
       } catch (error) {
         console.error("Error fetching transactions:", error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -38,20 +36,29 @@ const TransactionsPage = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Transactions</h1>
-      {transactions.length > 0 ? (
-        <ul>
-          {transactions.map((transaction) => (
-            <li key={transaction.id}>
-              {transaction.type} {transaction.quantity} {transaction.asset} at ${transaction.price}
+    <main className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Your Transactions</h1>
+
+      {loading ? (
+        <p className="text-gray-500">Loading transactions...</p>
+      ) : transactions.length > 0 ? (
+        <ul className="space-y-4">
+          {transactions.map((tx) => (
+            <li
+              key={tx.id}
+              className="p-4 bg-white rounded-2xl shadow border border-gray-200"
+            >
+              <p className="text-lg font-medium capitalize">{tx.type} {tx.asset}</p>
+              <p className="text-sm text-gray-600">
+                Quantity: {tx.quantity} @ ${tx.price.toLocaleString()}
+              </p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No transactions found.</p>
+        <p className="text-gray-500">No transactions found.</p>
       )}
-    </div>
+    </main>
   )
 }
 
