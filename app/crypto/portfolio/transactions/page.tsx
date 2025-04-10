@@ -24,7 +24,7 @@ const TransactionsPage = () => {
           { id: 2, type: "sell", asset: "ETH", quantity: 1, price: 3000 },
         ]
         setTransactions(data)
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error fetching transactions:", error)
         setError("Failed to load transactions. Please try again later.")
       } finally {
