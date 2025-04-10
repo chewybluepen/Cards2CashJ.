@@ -1,4 +1,3 @@
-// Add the "use client" directive to specify that this component is a client-side component
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -16,11 +15,10 @@ const AllocationPage: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Assuming we want to fetch portfolio allocation data
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/crypto/portfolio/allocation'); // Replace with the actual API endpoint
+        const res = await fetch('/api/crypto/portfolio/allocation');
         if (!res.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -37,13 +35,11 @@ const AllocationPage: NextPage = () => {
     fetchData();
   }, []);
 
-  // Sample variables for brevity and logical conditions
-  const brevity = true; // Or false depending on your logic
-  const is = true; // True or false depending on your condition
-  const correct = true; // Adjust based on the conditions you need
-  const and = true; // Same as above, depending on your logic
+  const brevity = true; // Sample logic condition
+  const is = true; // Another sample condition
+  const correct = true; // Yet another condition
+  const and = true; // Another one for testing
 
-  // Sample function to demonstrate the logic
   const someFunction = () => {
     if (brevity && is) {
       console.log("Brevity and is are true");
@@ -58,10 +54,8 @@ const AllocationPage: NextPage = () => {
     }
   };
 
-  // Calling the function (you can replace this with actual logic)
   someFunction();
 
-  // Return JSX with data display
   return (
     <main style={{ padding: '2rem' }}>
       <h1>Portfolio Allocation</h1>
