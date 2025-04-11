@@ -36,7 +36,6 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; connect-src *;"
         />
-        <title>Cards2Cash</title>
       </head>
       <body className={inter.className}>
         <ApolloProvider client={client}>
