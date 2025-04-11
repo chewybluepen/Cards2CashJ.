@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      // DEMO ONLY: Disable error and warning logs
+      window.onerror = () => true;
+      console.error = () => {};
+      console.warn = () => {};
+    `,
+  }}
+/>
+
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   @apply bg-tiktok-gradient text-tiktok-text;
