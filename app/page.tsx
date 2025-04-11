@@ -9,7 +9,7 @@ import { PageContainer } from "@/components/layout/page-container"
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-amazon-background">
-      <header className="w-full py-4 px-4 bg-gradient-to-r from-amazon-blue to-amazon-secondary text-white">
+      <header className="w-full py-4 px-4 bg-gradient-to-r from-amazon-blue to-amazon-secondary text-black">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image src="/images/logo.png" alt="Cards2Cash Logo" width={40} height={40} />
@@ -161,7 +161,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-8 bg-amazon-blue text-white">
+      <footer className="border-t py-8 bg-amazon-blue text-black">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
@@ -305,7 +305,7 @@ export default function Home() {
                   <input
                     type="email"
                     placeholder="Your email"
-                    className="flex-1 rounded-l-md border border-r-0 px-3 py-2 text-sm bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                    className="flex-1 rounded-l-md border border-r-0 px-3 py-2 text-sm bg-white/10 border-white/20 text-black placeholder:text-white/60"
                   />
                   <button className="rounded-r-md bg-amazon-primary px-3 py-2 text-sm text-amazon-dark font-medium hover:bg-amazon-accent transition-colors">
                     Subscribe
