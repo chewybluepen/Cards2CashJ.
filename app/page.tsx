@@ -304,7 +304,7 @@ export default function Home() {
                   <input
                     type="email"
                     placeholder="Your email"
-                    className="flex-1 rounded-l-md border border-r-0 px-3 py-2 text-sm bg-white/10 border-white/20 text-black placeholder:text-white/60"
+                    className="flex-1 rounded-l-md border border-r-0 px-3 py-2 text-sm bg-white/10 border-white/20 text-black placeholder:text-black/90"
                   />
                   <button className="rounded-r-md bg-amazon-primary px-3 py-2 text-sm text-black font-medium hover:bg-amazon-accent transition-colors">
                     Subscribe
