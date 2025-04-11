@@ -9,27 +9,26 @@ import { PageContainer } from "@/components/layout/page-container"
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-amazon-background">
-      <header className="w-full py-4 px-4 bg-gradient-to-r from-amazon-blue to-amazon-secondary text-black">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Image src="/images/logo.png" alt="Cards2Cash Logo" width={40} height={40} />
-            <span className="text-xl font-bold">Cards2Cash</span>
+      <header className="w-full py-4 px-4 bg-gradient-to-r from-amazon-blue to-amazon-secondary text-white">
+            <div className="container mx-auto flex justify-between items-center">
+              <div className="flex items-center gap-2 mr-16">
+                <Image src="/images/logo.png" alt="Cards2Cash Logo" width={35} height={35} />
+                <span className="text-lg font-bold">Cards2Cash</span>
+              </div>
+              <Tagline className="hidden md:block text-amazon-accent" />
+              <div className="flex items-center gap-3 ml-auto">
+                <Button variant="ghost" className="text-white hover:text-amazon-accent">
+                  About
+                </Button>
+                <Button variant="ghost" className="text-white hover:text-amazon-accent">
+                  Features
+                </Button>
+                <Button variant="ghost" className="text-white hover:text-amazon-accent">
+                  Contact
+                </Button>
+              </div>
           </div>
-          <Tagline className="hidden md:block text-amazon-accent" />
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" className="text-black/90 hover:text-amazon-accent" asChild>
-              <a href="/about">About</a>
-            </Button>
-            <Button variant="ghost" className="text-black/90 hover:text-amazon-accent" asChild>
-              <a href="/features">Features</a>
-            </Button>
-            <Button variant="ghost" className="text-black/90 hover:text-amazon-accent" asChild>
-              <a href="/contact">Contact</a>
-            </Button>
-          </div>
-        </div>
-      </header>
-
+        </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-20 lg:py-24 bg-gradient-to-b from-amazon-background to-white">
           <div className="container px-4 md:px-6">
