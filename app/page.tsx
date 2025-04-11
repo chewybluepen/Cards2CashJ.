@@ -17,13 +17,13 @@ export default function Home() {
           </div>
           <Tagline className="hidden md:block text-amazon-accent" />
           <div className="flex items-center gap-3">
-            <Button variant="ghost" className="text-slate-800 hover:text-amazon-accent" asChild>
+            <Button variant="ghost" className="text-black/90 hover:text-amazon-accent" asChild>
               <a href="/about">About</a>
             </Button>
-            <Button variant="ghost" className="text-slate-800 hover:text-amazon-accent" asChild>
+            <Button variant="ghost" className="text-black/90 hover:text-amazon-accent" asChild>
               <a href="/features">Features</a>
             </Button>
-            <Button variant="ghost" className="text-slate-800 hover:text-amazon-accent" asChild>
+            <Button variant="ghost" className="text-black/90 hover:text-amazon-accent" asChild>
               <a href="/contact">Contact</a>
             </Button>
           </div>
