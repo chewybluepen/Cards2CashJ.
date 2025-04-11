@@ -300,7 +300,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="mt-5">
-                <h4 className="text-sm font-medium mb-3 text-amazon-accent">Subscribe to our newsletter</h4>
+                <h4 className="text-sm font-medium mb-3 text-black">>Subscribe to our newsletter</h4>
                 <div className="flex">
                   <input
                     type="email"
