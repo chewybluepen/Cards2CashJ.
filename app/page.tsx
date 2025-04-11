@@ -228,7 +228,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4 text-amazon-accent">Connect With Us</h3>
+              <h3 className="font-semibold mb-4 text-black">Connect With Us</h3>
               <div className="flex space-x-4">
                 <a href="https://facebook.com" className="text-black/90 hover:text-amazon-accent transition-colors">
                   <svg
