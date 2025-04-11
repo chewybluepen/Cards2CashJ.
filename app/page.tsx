@@ -9,7 +9,7 @@ import { PageContainer } from "@/components/layout/page-container"
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-amazon-background">
-      <header className="w-full py-4 px-4 bg-gradient-to-r from-amazon-blue to-amazon-secondary text-white">
+      <header className="w-full py-4 px-4 bg-gradient-to-r from-amazon-blue to-amazon-secondary text-black">
           <div className="container mx-auto flex justify-between items-center gap-8">
             <div className="flex items-center gap-2 flex-shrink-0">
               <Image src="/images/logo.png" alt="Cards2Cash Logo" width={35} height={35} />
@@ -17,13 +17,13 @@ export default function Home() {
             </div>
             <Tagline className="hidden lg:block text-amazon-accent flex-shrink-0" />
             <nav className="flex items-center gap-3 flex-shrink-0">
-              <Button variant="ghost" className="text-white hover:text-amazon-accent">
+              <Button variant="ghost" className="text-black hover:text-amazon-accent">
                 About
               </Button>
-              <Button variant="ghost" className="text-white hover:text-amazon-accent">
+              <Button variant="ghost" className="text-black hover:text-amazon-accent">
                 Features
               </Button>
-              <Button variant="ghost" className="text-white hover:text-amazon-accent">
+              <Button variant="ghost" className="text-black hover:text-amazon-accent">
                 Contact
               </Button>
             </nav>
