@@ -1,13 +1,16 @@
-let userConfig = undefined
+// next.config.js (or next.config.mjs if you prefer ESM)
+let userConfig = undefined;
+
 try {
-  // try to import ESM first
-  userConfig = await import('./v0-user-next.config.mjs')
+  // Try to import the ESM version of your user config
+  userConfig = await import('./v0-user-next.config.mjs');
 } catch (e) {
   try {
-    // fallback to CJS import
-    userConfig = await import("./v0-user-next.config");
+    // Fallback: Try to import the CommonJS version of your user config
+    userConfig = await import('./v0-user-next.config');
   } catch (innerError) {
-    // ignore error
+    // If both imports fail, log a warning and continue with default configuration
+    console.warn("No user configuration file found. Proceeding with default configuration.");
   }
 }
 
@@ -27,25 +30,22 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-}
+};
 
+// If a user configuration was found, merge it into our default config
 if (userConfig) {
-  // ESM imports will have a "default" property
-  const config = userConfig.default || userConfig
-
+  // Use the "default" export for ESM imports; otherwise use the imported module directly.
+  const config = userConfig.default || userConfig;
   for (const key in config) {
-    if (
-      typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
-    ) {
+    if (typeof nextConfig[key] === "object" && !Array.isArray(nextConfig[key])) {
       nextConfig[key] = {
         ...nextConfig[key],
         ...config[key],
-      }
+      };
     } else {
-      nextConfig[key] = config[key]
+      nextConfig[key] = config[key];
     }
   }
 }
 
-export default nextConfig
+export default nextConfig;
