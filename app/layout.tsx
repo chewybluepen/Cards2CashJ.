@@ -11,8 +11,8 @@ import { AuthNavigation } from "@/components/layout/auth-navigation";
 import { AccessibilityProvider } from "@/contexts/accessibility-context";
 import { AnimationProvider } from "@/contexts/animation-context";
 import ClientTransitionWrapper from "./client-transition-wrapper";
-import { ApolloProvider } from '@apollo/client';
-import client from '../lib/apolloClient';
+import { ApolloProvider } from "@apollo/client";
+import client from "../lib/apolloClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* WARNING: The following meta tag disables most security protections.
+            Use ONLY in a demo environment. */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; connect-src *;"
+        />
         <title>Cards2Cash</title>
       </head>
       <body className={inter.className}>
