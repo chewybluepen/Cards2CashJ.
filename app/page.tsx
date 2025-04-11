@@ -36,7 +36,7 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="flex flex-col justify-center space-y-5 slide-in-left">
                 <div className="space-y-3">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-amazon-dark">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
                     Convert Phone Credit to Digital Funds
                   </h1>
                   <Tagline variant="large" className="text-left text-amazon-secondary" />
@@ -71,7 +71,7 @@ export default function Home() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="animate-button-press hover:bg-amazon-accent hover:text-amazon-dark"
+                    className="animate-button-press hover:bg-amazon-accent hover:text-black"
                     asChild
                   >
                     <a href="/features">Learn More</a>
