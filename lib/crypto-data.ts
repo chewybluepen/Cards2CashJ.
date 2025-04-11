@@ -21,21 +21,20 @@ export const cryptoData = [
   { id: "eth", name: "Ethereum", price: 4000 },
 ];
 
-
 // Cryptocurrency data
 export interface Cryptocurrency {
-  id: string
-  name: string
-  symbol: string
-  logo: string
-  currentPrice: number
-  marketCap: number
-  volume24h: number
-  change24h: number
-  change7d: number
-  rank: number
-  category: string
-  description: string
+  id: string;
+  name: string;
+  symbol: string;
+  logo: string;
+  currentPrice: number;
+  marketCap: number;
+  volume24h: number;
+  change24h: number;
+  change7d: number;
+  rank: number;
+  category: string;
+  description: string;
 }
 
 export const categories = [
@@ -49,14 +48,14 @@ export const categories = [
   "Storage",
   "Oracle",
   "Meme",
-]
+];
 
 export const cryptocurrencies: Cryptocurrency[] = [
   {
     id: "bitcoin",
     name: "Bitcoin",
     symbol: "BTC",
-    logo: "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+    logo: "/images/crypto_logos/btc_bitcoin.png",
     currentPrice: 65432.1,
     marketCap: 1258000000000,
     volume24h: 32500000000,
@@ -71,7 +70,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "ethereum",
     name: "Ethereum",
     symbol: "ETH",
-    logo: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+    logo: "/images/crypto_logos/eth_ethereum.png",
     currentPrice: 3456.78,
     marketCap: 415000000000,
     volume24h: 18700000000,
@@ -86,7 +85,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "binancecoin",
     name: "Binance Coin",
     symbol: "BNB",
-    logo: "https://cryptologos.cc/logos/bnb-bnb-logo.png",
+    logo: "/images/crypto_logos/bnb_bnb.png",
     currentPrice: 567.89,
     marketCap: 87600000000,
     volume24h: 2340000000,
@@ -94,13 +93,14 @@ export const cryptocurrencies: Cryptocurrency[] = [
     change7d: 2.34,
     rank: 3,
     category: "Exchange",
-    description: "Binance Coin is the cryptocurrency issued by the Binance exchange and trades with the BNB symbol.",
+    description:
+      "Binance Coin is the cryptocurrency issued by the Binance exchange and trades with the BNB symbol.",
   },
   {
     id: "solana",
     name: "Solana",
     symbol: "SOL",
-    logo: "https://cryptologos.cc/logos/solana-sol-logo.png",
+    logo: "/images/crypto_logos/sol_solana.png",
     currentPrice: 123.45,
     marketCap: 54300000000,
     volume24h: 3210000000,
@@ -115,7 +115,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "cardano",
     name: "Cardano",
     symbol: "ADA",
-    logo: "https://cryptologos.cc/logos/cardano-ada-logo.png",
+    logo: "/images/crypto_logos/ada_cardano.png",
     currentPrice: 0.45,
     marketCap: 15800000000,
     volume24h: 567000000,
@@ -130,7 +130,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "ripple",
     name: "XRP",
     symbol: "XRP",
-    logo: "https://cryptologos.cc/logos/xrp-xrp-logo.png",
+    logo: "/images/crypto_logos/xrp_xrp.png",
     currentPrice: 0.56,
     marketCap: 30500000000,
     volume24h: 1230000000,
@@ -145,7 +145,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "polkadot",
     name: "Polkadot",
     symbol: "DOT",
-    logo: "https://cryptologos.cc/logos/polkadot-new-dot-logo.png",
+    logo: "/images/crypto_logos/dot_polkadot.png",
     currentPrice: 6.78,
     marketCap: 8760000000,
     volume24h: 345000000,
@@ -160,7 +160,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "dogecoin",
     name: "Dogecoin",
     symbol: "DOGE",
-    logo: "https://cryptologos.cc/logos/dogecoin-doge-logo.png",
+    logo: "/images/crypto_logos/doge_dogecoin.png",
     currentPrice: 0.12,
     marketCap: 16700000000,
     volume24h: 890000000,
@@ -175,7 +175,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "avalanche",
     name: "Avalanche",
     symbol: "AVAX",
-    logo: "https://cryptologos.cc/logos/avalanche-avax-logo.png",
+    logo: "/images/crypto_logos/avax_avalanche.png",
     currentPrice: 34.56,
     marketCap: 12300000000,
     volume24h: 567000000,
@@ -190,7 +190,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "chainlink",
     name: "Chainlink",
     symbol: "LINK",
-    logo: "https://cryptologos.cc/logos/chainlink-link-logo.png",
+    logo: "/images/crypto_logos/link_chainlink.png",
     currentPrice: 12.34,
     marketCap: 7890000000,
     volume24h: 456000000,
@@ -205,7 +205,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "uniswap",
     name: "Uniswap",
     symbol: "UNI",
-    logo: "https://cryptologos.cc/logos/uniswap-uni-logo.png",
+    logo: "/images/crypto_logos/uni_uniswap.png",
     currentPrice: 5.67,
     marketCap: 4320000000,
     volume24h: 234000000,
@@ -220,7 +220,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "tether",
     name: "Tether",
     symbol: "USDT",
-    logo: "https://cryptologos.cc/logos/tether-usdt-logo.png",
+    logo: "/images/crypto_logos/usdt_tether.png",
     currentPrice: 1.0,
     marketCap: 83500000000,
     volume24h: 56700000000,
@@ -235,7 +235,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "shiba-inu",
     name: "Shiba Inu",
     symbol: "SHIB",
-    logo: "https://cryptologos.cc/logos/shiba-inu-shib-logo.png",
+    logo: "/images/crypto_logos/shib_shiba_inu.png",
     currentPrice: 0.00001234,
     marketCap: 7230000000,
     volume24h: 345000000,
@@ -243,13 +243,14 @@ export const cryptocurrencies: Cryptocurrency[] = [
     change7d: 12.34,
     rank: 13,
     category: "Meme",
-    description: "Shiba Inu is a decentralized meme token that evolved into a vibrant ecosystem.",
+    description:
+      "Shiba Inu is a decentralized meme token that evolved into a vibrant ecosystem.",
   },
   {
     id: "polygon",
     name: "Polygon",
     symbol: "MATIC",
-    logo: "https://cryptologos.cc/logos/polygon-matic-logo.png",
+    logo: "/images/crypto_logos/pol_pol_(ex-matic).png",
     currentPrice: 0.78,
     marketCap: 7890000000,
     volume24h: 456000000,
@@ -264,7 +265,7 @@ export const cryptocurrencies: Cryptocurrency[] = [
     id: "litecoin",
     name: "Litecoin",
     symbol: "LTC",
-    logo: "https://cryptologos.cc/logos/litecoin-ltc-logo.png",
+    logo: "/images/crypto_logos/ltc_litecoin.png",
     currentPrice: 78.9,
     marketCap: 5670000000,
     volume24h: 345000000,
@@ -275,28 +276,31 @@ export const cryptocurrencies: Cryptocurrency[] = [
     description:
       "Litecoin is a peer-to-peer cryptocurrency and open-source software project released under the MIT/X11 license.",
   },
-]
+];
 
 // Function to search cryptocurrencies
 export function searchCryptocurrencies(query: string): Cryptocurrency[] {
-  const lowerCaseQuery = query.toLowerCase()
+  const lowerCaseQuery = query.toLowerCase();
   return cryptocurrencies.filter(
     (crypto) =>
-      crypto.name.toLowerCase().includes(lowerCaseQuery) || crypto.symbol.toLowerCase().includes(lowerCaseQuery),
-  )
+      crypto.name.toLowerCase().includes(lowerCaseQuery) ||
+      crypto.symbol.toLowerCase().includes(lowerCaseQuery)
+  );
 }
 
 // Function to get top cryptocurrencies by market cap
 export function getTopCryptocurrencies(count: number): Cryptocurrency[] {
-  return [...cryptocurrencies].sort((a, b) => b.marketCap - a.marketCap).slice(0, count)
+  return [...cryptocurrencies]
+    .sort((a, b) => b.marketCap - a.marketCap)
+    .slice(0, count);
 }
 
 // Function to get cryptocurrency by ID
 export function getCryptocurrencyById(id: string): Cryptocurrency | undefined {
-  return cryptocurrencies.find((crypto) => crypto.id === id)
+  return cryptocurrencies.find((crypto) => crypto.id === id);
 }
 
 // Function to get cryptocurrencies by category
 export function getCryptocurrenciesByCategory(category: string): Cryptocurrency[] {
-  return cryptocurrencies.filter((crypto) => crypto.category === category)
+  return cryptocurrencies.filter((crypto) => crypto.category === category);
 }
