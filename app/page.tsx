@@ -176,27 +176,27 @@ export default function Home() {
               <h3 className="font-semibold mb-4 text-amazon-accent">Quick Links</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="/" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="/features" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/features" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="/pricing" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/pricing" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Pricing
                   </a>
                 </li>
                 <li>
-                  <a href="/about" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/about" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/contact" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Contact
                   </a>
                 </li>
@@ -206,22 +206,22 @@ export default function Home() {
               <h3 className="font-semibold mb-4 text-amazon-accent">Legal</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="/terms" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/terms" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Terms of Service
                   </a>
                 </li>
                 <li>
-                  <a href="/privacy" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/privacy" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="/cookies" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/cookies" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Cookie Policy
                   </a>
                 </li>
                 <li>
-                  <a href="/compliance" className="text-sm text-white/70 hover:text-amazon-accent transition-colors">
+                  <a href="/compliance" className="text-sm text-black/90 hover:text-amazon-accent transition-colors">
                     Compliance
                   </a>
                 </li>
@@ -230,7 +230,7 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4 text-amazon-accent">Connect With Us</h3>
               <div className="flex space-x-4">
-                <a href="https://facebook.com" className="text-white/70 hover:text-amazon-accent transition-colors">
+                <a href="https://facebook.com" className="text-black/90 hover:text-amazon-accent transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -246,7 +246,7 @@ export default function Home() {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
-                <a href="https://twitter.com" className="text-white/70 hover:text-amazon-accent transition-colors">
+                <a href="https://twitter.com" className="text-black/90 hover:text-amazon-accent transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -262,7 +262,7 @@ export default function Home() {
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
                 </a>
-                <a href="https://instagram.com" className="text-white/70 hover:text-amazon-accent transition-colors">
+                <a href="https://instagram.com" className="text-black/90 hover:text-amazon-accent transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -280,7 +280,7 @@ export default function Home() {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
-                <a href="https://linkedin.com" className="text-white/70 hover:text-amazon-accent transition-colors">
+                <a href="https://linkedin.com" className="text-black/90 hover:text-amazon-accent transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -315,7 +315,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 border-t border-white/20 pt-8 text-center">
-            <p className="text-sm text-white/60">&copy; {new Date().getFullYear()} Cards2Cash. All rights reserved.</p>
+            <p className="text-sm text-black/90">&copy; {new Date().getFullYear()} Cards2Cash. All rights reserved.</p>
           </div>
         </div>
       </footer>
