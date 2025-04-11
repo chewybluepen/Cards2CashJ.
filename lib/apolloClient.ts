@@ -1,22 +1,39 @@
-// lib/apolloClient.ts
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-// WARNING: Disabling key fields and merge functions for the User type bypasses
-// Apollo's cache normalization and merging safeguards. Use only in a demo environment.
+// DEMO MODE ONLY: Turn off normalization, allow duplicates, ignore ID warnings
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "http://localhost:4000/graphql", // fallback endpoint for demo
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "http://localhost:4000/graphql",
   cache: new InMemoryCache({
     typePolicies: {
+      Query: {
+        fields: {
+          user: {
+            merge(existing, incoming) {
+              return incoming;
+            },
+          },
+        },
+      },
       User: {
-        // Disable automatic merging of User objects by turning off key fields.
-        keyFields: false,
-        // Always return incoming data so that missing IDs do not cause issues.
+        keyFields: false, // Don't expect an ID
         merge(existing, incoming) {
-          return incoming;
+          return incoming; // Always replace, never merge
         },
       },
     },
   }),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'no-cache',
+      errorPolicy: 'ignore',
+    },
+    query: {
+      fetchPolicy: 'no-cache',
+      errorPolicy: 'ignore',
+    },
+    mutate: {
+      errorPolicy: 'ignore',
+    },
+  },
 });
-
 export default client;
